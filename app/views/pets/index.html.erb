@@ -1,0 +1,30 @@
+<h1>Pets</h1>
+
+<table>
+  <theader>
+    <th>Name</th>
+    <th>Species</th>
+    <th>Address</th>
+    <th>Date Found</th>
+    <th>Claimed</th>
+    <th>Actions</th>
+  </theader>
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name.capitalize %></td>
+        <td><%= pet.species.titleize  %></td>
+        <td><%= pet.address.titleize %></td>
+        <td><%= pet.found_on.strftime("%m/%d/%Y") if pet.found_on %></td>
+        <td><%= pet.found %></td>
+        <td>
+          <%= link_to 'Show', pet_path(pet) %>
+          <%= link_to 'Edit', edit_pet_path(pet) %>
+          <%= link_to 'Delete', pet_path(pet), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add a Pet", new_pet_path %>

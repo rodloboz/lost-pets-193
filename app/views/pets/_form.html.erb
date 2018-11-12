@@ -1,0 +1,15 @@
+<%= form_for(@pet) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :species %>
+  <%= f.select :species, Pet.list_species %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :found %>
+  <%= f.check_box :found %>
+
+  <%= f.submit %>
+<% end %>
